@@ -1,0 +1,172 @@
+/* 
+
+Food Ordering Admin
+
+*/
+
+* {
+    margin: auto;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* UTILITIES */
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+
+.wrapper {
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* MENU */
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu {
+    border-bottom: 1px solid silver;
+}
+
+.menu ul li {
+    display: inline;
+    padding: 1%;
+}
+
+.menu ul li a {
+    font-weight: bold;
+    color: #F45050;
+}
+
+.menu ul li a:hover {
+    color: #f13232;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    background-color: #ececec;
+    padding: 1rem 0;
+}
+
+.col-4{
+    width: 20%;
+    background-color: white;
+    margin: 1%;
+    padding: 1%;
+}
+
+
+/* table */
+
+table{
+    min-width: 100%;
+    width: 100%;
+}
+
+table tr th {
+    border-bottom: 1px solid silver;
+    padding: 1%;
+    text-align: left;
+}
+
+
+table tr td {
+    padding: 1%;
+}
+
+
+.tbl-30 {
+    width: 30%;
+    min-width: 30%;
+    margin: 1rem 0;
+}
+
+
+
+/* buttons And Inputs*/
+
+.btn-primary{
+    background-color: #1681fc;
+    padding: 1%;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 1%;
+
+}
+
+
+.btn-primary:hover {
+    background-color: #0079FF;
+}
+
+.btn-secondary{
+    background-color: #00925a;
+    padding: 1%;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+    margin: 1%;
+
+}
+
+
+.btn-secondary:hover {
+    background-color: rgb(0, 119, 64);
+}
+
+.btn-danger{
+    background-color: #dd0037;
+    padding: 1%;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+    margin: 1%;
+}
+
+
+.btn-danger:hover {
+    background-color: rgb(180, 16, 24);
+}
+
+input {
+    padding: 3%;
+    outline: none;
+    border: none;
+    margin: 0.5rem 0;
+}
+
+.input-submit {
+    padding: 10%;
+}
+
+
+
+
+/* FOOTER */
+.footer {
+    background-color: #F45050;
+    color: #fff;
+}
+
