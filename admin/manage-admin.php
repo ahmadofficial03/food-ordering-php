@@ -27,24 +27,41 @@
                 <th>Username</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1. </td>
-                <td>Ahmad Fraz</td>
-                <td>ahmad</td>
-                <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
-            </tr>
-            <tr>
-                <td>2. </td>
-                <td>Ahmad Fraz</td>
-                <td>ahmad</td>
-                <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
-            </tr>
-            <tr>
-                <td>3. </td>
-                <td>Ahmad Fraz</td>
-                <td>ahmad</td>
-                <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
-            </tr>
+
+            <?php
+            // QUERY:
+            $query = "SELECT * FROM tbl_admin";
+
+            // EXECUTE QUERY:
+            $result = mysqli_query($connection, $query);
+
+
+            if ($result) {
+                // GETTING NUMBER OF ROWS:
+                $count = mysqli_num_rows($result);
+
+                $sn = 1;
+
+                // ITERATE AND FETCH ALL THE RECORDS FROM DB
+                while ($rows = mysqli_fetch_assoc($result)) {
+                    $id = $rows['id'];
+                    $full_name = $rows['full_name'];
+                    $username = $rows['username'];
+
+                    // Display admins in table:
+            ?>
+                    <tr>
+                        <td><?php echo $sn++ ?></td>
+                        <td><?php echo $full_name ?></td>
+                        <td><?php echo $username ?></td>
+                        <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
+                    </tr>
+            <?php
+                }
+            }
+
+
+            ?>
             <br />
         </table>
 

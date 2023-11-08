@@ -5,6 +5,7 @@
 <div class="main-content">
     <div class="wrapper">
 
+
         <form action="" method="POST">
             <h1>Add Admin</h1>
             <br />
@@ -50,15 +51,24 @@ if (!isset($_POST['submit'])) {
     $password = md5($_POST['password']);
 
 
-    $query = "INSERT INTO tbl_admin(full_name, username, password) VALUES('$full_name', '$username', '$password')";
-    // SAVE DATA INTO DB:
-    $result = mysqli_query($connection, $query);
 
-    if ($result == true) {
-        $_SESSION['add'] = "Admin added successfully";
-        header("location:" . SITEURL . "admin/manage-admin.php");
-    } else {
-        $_SESSION['add'] = "<h1>Something went wrong when trying to add admin</h1>";
-        header("location:" . SITEURL . "admin/add-admin.php");
+    // TAKING VALUES AND CONNECTION, PERFORM QUERY AND STORE ADMIN INTO DATABASE
+    function addAdmin($full_name, $username, $password, $connection)
+    {
+        $query = "INSERT INTO tbl_admin(full_name, username, password) VALUES('$full_name', '$username', '$password')";
+        // SAVE DATA INTO DB:
+        $result = mysqli_query($connection, $query);
+
+        if ($result == true) {
+            $_SESSION['add'] = "Admin added successfully";
+            header("location:" . SITEURL . "admin/manage-admin.php");
+        } else {
+            $_SESSION['add'] = "<h1>Something went wrong when trying to add admin</h1>";
+            header("location:" . SITEURL . "admin/add-admin.php");
+        }
     }
+
+
+    // MAKE INSERT QUERY AND STORE INTO DATABASE:
+    addAdmin($full_name, $username, $password, $connection);
 }
