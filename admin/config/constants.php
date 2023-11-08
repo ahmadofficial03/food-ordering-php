@@ -1,5 +1,10 @@
 <?php
 
+// session start:
+session_start();
+
+// CONSTANTS:
+define('SITEURL', 'http://localhost/food-ordering/');
 define('LOCAL_HOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_NAME', 'food-order');

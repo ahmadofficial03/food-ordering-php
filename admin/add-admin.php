@@ -1,6 +1,5 @@
 <?php include("../admin/partials/menu.php") ?>
-
-
+<?php include("./config/constants.php") ?>
 
 
 <div class="main-content">
@@ -8,7 +7,7 @@
 
         <form action="" method="POST">
             <h1>Add Admin</h1>
-
+            <br />
             <table class="tbl-30">
                 <tr>
                     <td>Full Name</td>
@@ -25,6 +24,14 @@
                 <tr>
                     <td><input type="submit" name="submit" value="Add Admin" class="btn btn-secondary input-submit" /></td>
                 </tr>
+                <tr>
+                    <?php
+                    if (isset($_SESSION['add'])) {
+                        echo $_SESSION['add'];
+                        unset($_SESSION['add']);
+                    }
+                    ?>
+                </tr>
             </table>
         </form>
     </div>
@@ -33,47 +40,25 @@
 
 <?php
 
-header('Access-Control-Allow-Origin:*');
-
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$db = "food-order";
-
-
-function connection($host, $user, $password, $db)
-{
-    $connect = mysqli_connect($host, $user, $password, $db);
-    return $connect;
-}
-
-$connection = connection($host, $user, $password, $db);
-
 
 if (!isset($_POST['submit'])) {
-    echo "Not submit!";
+    echo $response = ["success" => false, "message" => "Something went wrong"];
 } else {
     // GETTING FORM VALUES:
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    // QUERY:
-    // $query = "INSERT INTO tbl_admin SET 
-    // full_name='$full_name', 
-    // username='$username', 
-    // password='$password'
-    // ";
-
 
     $query = "INSERT INTO tbl_admin(full_name, username, password) VALUES('$full_name', '$username', '$password')";
     // SAVE DATA INTO DB:
     $result = mysqli_query($connection, $query);
-    echo $result;
 
-    if ($result) {
-        echo "inserted";
+    if ($result == true) {
+        $_SESSION['add'] = "Admin added successfully";
+        header("location:" . SITEURL . "admin/manage-admin.php");
     } else {
-        echo "Error: " . mysqli_error($connection);
+        $_SESSION['add'] = "<h1>Something went wrong when trying to add admin</h1>";
+        header("location:" . SITEURL . "admin/add-admin.php");
     }
 }
