@@ -31,6 +31,11 @@
                         echo $_SESSION['add'];
                         unset($_SESSION['add']);
                     }
+
+                    if (isset($_SESSION['fill-form'])) {
+                        echo $_SESSION['fill-form'];
+                        unset($_SESSION['fill-form']);
+                    }
                     ?>
                 </tr>
             </table>
@@ -45,10 +50,18 @@
 if (!isset($_POST['submit'])) {
     echo $response = ["success" => false, "message" => "Something went wrong"];
 } else {
+
+    if ($_POST['full_name'] == "" && $_POST['username'] == "" && $_POST['password'] == "") {
+        $_SESSION['fill-form'] = "Please filling form details";
+        return;
+    }
+
     // GETTING FORM VALUES:
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
     $password = md5($_POST['password']);
+
+
 
 
 

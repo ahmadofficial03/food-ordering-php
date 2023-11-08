@@ -9,7 +9,7 @@ $query = "DELETE FROM tbl_admin WHERE id=$id";
 $result = mysqli_query($connection, $query);
 
 if ($result == true) {
-    $_SESSION['delete'] = "Admin Delete successfully";
+    $_SESSION['delete'] = "Admin Deleted successfully";
     header("location:" . SITEURL . "admin/manage-admin.php");
 } else {
     $_SESSION['delete'] = "Something went wrong when trying to add admin";
