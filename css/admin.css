@@ -79,6 +79,7 @@ a {
 table{
     min-width: 100%;
     width: 100%;
+    
 }
 
 table tr th {
@@ -161,6 +162,12 @@ input {
 
 .input-submit {
     padding: 10%;
+}
+
+/* Login */
+.login {
+    border: 1px solid black;
+    background-color: #ccc;
 }
 
 
