@@ -74,7 +74,6 @@
                     $id = $rows['id'];
                     $full_name = $rows['full_name'];
                     $username = $rows['username'];
-
                     // Display admins in table:
             ?>
                     <tr>

@@ -9,8 +9,6 @@
         <br />
         <br />
 
-
-
         <a href="add-category.php" class="btn-primary">Add Category</a>
         <br />
         <br />
@@ -29,28 +27,46 @@
         <table class="full-width">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
+                <th>Category Title</th>
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Image Name</th>
                 <th>Actions</th>
+
             </tr>
-            <tr>
-                <td>1. </td>
-                <td>Ahmad Fraz</td>
-                <td>ahmad</td>
-                <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
-            </tr>
-            <tr>
-                <td>2. </td>
-                <td>Ahmad Fraz</td>
-                <td>ahmad</td>
-                <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
-            </tr>
-            <tr>
-                <td>3. </td>
-                <td>Ahmad Fraz</td>
-                <td>ahmad</td>
-                <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
-            </tr>
+            <?php
+            $query = "SELECT * FROM tbl_category";
+            $result = mysqli_query($connection, $query);
+
+            if ($result) {
+                // GETTING NUMBER OF ROWS:
+                $count = mysqli_num_rows($result);
+
+                $sn = 1;
+
+                // ITERATE AND FETCH ALL THE RECORDS FROM DB
+                while ($rows = mysqli_fetch_assoc($result)) {
+                    $id = $rows['id'];
+                    $title = $rows['title'];
+                    $featured = $rows['featured'];
+                    $active = $rows['active'];
+                    $image_name = $rows['image_name'];
+                    // Display admins in table:
+            ?>
+                    <tr>
+                        <td><?php echo $sn++ ?></td>
+                        <td><?php echo $title ?></td>
+                        <td><?php echo $featured ?></td>
+                        <td><?php echo $active ?></td>
+                        <td><?php echo $image_name ?></td>
+
+                        <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
+                    </tr>
+            <?php
+                }
+            }
+
+            ?>
         </table>
     </div>
 </div>
