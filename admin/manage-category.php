@@ -4,15 +4,27 @@
 <!-- Main Section -->
 <div class="main-content">
     <div class="wrapper">
-        <strong>Manage Category</strong>
+        <h1>Manage Category</h1>
         <br />
         <br />
         <br />
 
-        <a href="#" class="btn-primary">Add Category</a>
+
+
+        <a href="add-category.php" class="btn-primary">Add Category</a>
         <br />
         <br />
         <br />
+        <p style="color: green;">
+            <?php
+            if (isset($_SESSION['add'])) {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+
+            ?>
+        </p>
+        <br><br>
 
         <table class="full-width">
             <tr>
