@@ -1,4 +1,6 @@
 <?php include("../admin/partials/menu.php") ?>
+<?php include("./config/constants.php") ?>
+
 <!-- Main Section -->
 <div class="main-content">
     <div class="wrapper">

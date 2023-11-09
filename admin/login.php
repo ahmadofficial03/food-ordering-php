@@ -66,17 +66,18 @@
             <p style="color: red;">
                 <?php
                 if (isset($_SESSION['login'])) {
-                    if (isset($_SESSION['login'])) {
-                        echo $_SESSION['login'];
-                        unset($_SESSION['login']);
-                    }
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
                 }
 
                 if (isset($_SESSION['login'])) {
-                    if (isset($_SESSION['login'])) {
-                        echo $_SESSION['login'];
-                        unset($_SESSION['login']);
-                    }
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+                }
+
+                if (isset($_SESSION['no-login-message'])) {
+                    echo $_SESSION['no-login-message'];
+                    unset($_SESSION['no-login-message']);
                 }
                 ?>
             </p>
@@ -115,7 +116,8 @@ if (isset($_POST['submit'])) {
         $count = mysqli_num_rows($result);
         if ($count == 1) {
             $_SESSION['login'] = "Admin Login successfully";
-            header("location:" . SITEURL . "admin/index.php");
+            $_SESSION['user'] = $username;
+            header("location:" . SITEURL . "admin/");
         }
     } else {
         $_SESSION['login'] = "Bad Credentials";
