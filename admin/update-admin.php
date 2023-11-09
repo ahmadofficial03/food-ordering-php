@@ -16,10 +16,9 @@
         if ($result) {
             $count = mysqli_num_rows($result);
             if ($count == 1) {
-                echo "Admin Avaliable";
                 $rows = mysqli_fetch_assoc($result);
-                echo $full_name = $rows['full_name'];
-                echo $username = $rows['username'];
+                $full_name = $rows['full_name'];
+                $username = $rows['username'];
             } else {
                 echo "Admin not Avaliable";
             }
@@ -55,7 +54,6 @@
 
 
 if (isset($_POST['submit'])) {
-    echo "clicked";
     $id = $_POST['id'];
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
