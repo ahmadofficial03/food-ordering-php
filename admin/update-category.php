@@ -40,15 +40,23 @@
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input type="radio" name="featured" value="yes"> Yes
-                        <input type="radio" name="featured" value="no"> No
+                        <input <?php if ($featured == "yes") {
+                                    echo "checked";
+                                } ?> type="radio" name="featured" value="yes"> Yes
+                        <input <?php if ($featured == "no") {
+                                    echo "checked";
+                                } ?>type="radio" name="featured" value="no"> No
                     </td>
                 </tr>
                 <tr>
                     <td>Active:</td>
                     <td>
-                        <input type="radio" name="active" value="yes" ?> Yes
-                        <input type="radio" name="active" value="no" ?> No
+                        <input <?php if ($active == "yes") {
+                                    echo "checked";
+                                } ?> type="radio" name="active" value="yes" ?> Yes
+                        <input <?php if ($active == "no") {
+                                    echo "checked";
+                                } ?> type="radio" name="active" value="no" ?> No
                     </td>
                 </tr>
 
@@ -72,13 +80,13 @@ if (isset($_POST['submit'])) {
     echo $title = $_POST['title'];
 
     if (isset($_POST['featured'])) {
-        echo $featured = $_POST['featured'];
+        $featured = $_POST['featured'];
     } else {
         echo "no";
     }
 
     if (isset($_POST['active'])) {
-        echo $active = $_POST['active'];
+        $active = $_POST['active'];
     } else {
         echo "no";
     }
@@ -87,23 +95,11 @@ if (isset($_POST['submit'])) {
     // die();
 
     if (isset($_FILES['image']['name'])) {
-        echo $image_name = $_FILES['image']['name'];
+        $image_name = $_FILES['image']['name'];
 
         // Rename Image:
         $ext = end(explode('.', $image_name));
         $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
-
-        // $source_path = $_FILES['image']['tmp_name'];
-        // $destination_path = "../images/category/" . $image_name;
-
-        // $upload = move_uploaded_file($source_path, $destination_path);
-
-        // if ($upload == true) {
-        //     // File uploaded successfully
-        //     echo "upload";
-        // } else {
-        //     echo "failed to upload";
-        // }
     } else {
         $image_name = "";
     }
