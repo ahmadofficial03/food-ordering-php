@@ -1,8 +1,6 @@
 <?php include("../admin/partials/menu.php") ?>
 <?php include("./config/constants.php") ?>
 
-
-
 <div class="main-content">
     <div class="wrapper">
         <h1>Update Admin</h1>

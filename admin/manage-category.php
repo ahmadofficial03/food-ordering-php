@@ -20,6 +20,16 @@
                 unset($_SESSION['add']);
             }
 
+            if (isset($_SESSION['delete'])) {
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+
+            if (isset($_SESSION['update'])) {
+                echo $_SESSION['update'];
+                unset($_SESSION['update']);
+            }
+
             ?>
         </p>
         <br><br>
@@ -32,7 +42,6 @@
                 <th>Active</th>
                 <th>Image Name</th>
                 <th>Actions</th>
-
             </tr>
             <?php
             $query = "SELECT * FROM tbl_category";
@@ -41,9 +50,7 @@
             if ($result) {
                 // GETTING NUMBER OF ROWS:
                 $count = mysqli_num_rows($result);
-
                 $sn = 1;
-
                 // ITERATE AND FETCH ALL THE RECORDS FROM DB
                 while ($rows = mysqli_fetch_assoc($result)) {
                     $id = $rows['id'];
@@ -59,13 +66,14 @@
                         <td><?php echo $featured ?></td>
                         <td><?php echo $active ?></td>
                         <td><?php echo $image_name ?></td>
-
-                        <td><a href="#" class="btn-secondary">Update Admin</a><a href="#" class="btn-danger">Delete Admin</a></td>
+                        <td>
+                            <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id ?>" class="btn-secondary">Update</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id ?>" class="btn-danger">Delete</a>
+                        </td>
                     </tr>
             <?php
                 }
             }
-
             ?>
         </table>
     </div>

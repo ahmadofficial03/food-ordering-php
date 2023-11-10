@@ -61,8 +61,6 @@
 
             // EXECUTE QUERY:
             $result = mysqli_query($connection, $query);
-
-
             if ($result) {
                 // GETTING NUMBER OF ROWS:
                 $count = mysqli_num_rows($result);

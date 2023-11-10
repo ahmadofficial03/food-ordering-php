@@ -78,8 +78,10 @@ if (isset($_POST['submit'])) {
         $destination_path = "../images/category/" . $image_name;
 
         $upload = move_uploaded_file($source_path, $destination_path);
-        if ($upload) {
+
+        if ($upload == true) {
             // File uploaded successfully
+            echo "upload";
         } else {
             echo "failed to upload";
         }
