@@ -19,6 +19,14 @@ Food Ordering Admin
     flex-direction: row;
 }
 
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
 
 
 .wrapper {

@@ -8,7 +8,7 @@
         <h1>Add Category</h1>
 
         <br><br>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data" style="padding: 0 0 1rem 1rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; background-color: #EEEDED; margin-top: 1rem;">
             <br />
             <table class="tbl-30">
                 <tr>
