@@ -13,6 +13,11 @@
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
             }
+
+            if (isset($_SESSION['updated'])) {
+                echo $_SESSION['updated'];
+                unset($_SESSION['updated']);
+            }
             ?>
         </p>
         <p style="color: red;">
