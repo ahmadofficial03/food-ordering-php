@@ -84,25 +84,28 @@
                 $image_name = $rows['image_name'];
                 $price = $rows['price'];
                 $description = $rows['description'];
+                echo SITEURL;
         ?>
-                <div class="food-menu-box">
-                    <div class="food-menu-img">
-                        <img src="images/food/food_category_624.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                <a href="<?php echo SITEURL; ?>category-foods.php">
+
+                    <div class="food-menu-box">
+                        <div class="food-menu-img">
+                            <img src="images/food/food_category_624.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                        </div>
+
+                        <div class="food-menu-desc">
+                            <h4><?php echo $title; ?></h4>
+                            <?php echo $price ?>
+                            <p class="food-price"></p>
+                            <p class="food-detail">
+                                <?php echo $description ?>
+                            </p>
+                            <br>
+
+                            <a href="#" class="btn btn-primary">Order Now</a>
+                        </div>
                     </div>
-
-                    <div class="food-menu-desc">
-                        <h4><?php echo $title; ?></h4>
-                        <?php echo $price ?>
-                        <p class="food-price"></p>
-                        <p class="food-detail">
-                            <?php echo $description ?>
-                        </p>
-                        <br>
-
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
+                </a>
         <?php
             }
         }
