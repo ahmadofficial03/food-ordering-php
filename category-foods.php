@@ -1,10 +1,25 @@
 <?php include("./partials-front/menu.php") ?>
 
+<?php
+if (isset($_GET['category_id'])) {
+    $category_id = $_GET['category_id'];
+
+    $query = "SELECT title FROM tbl_category WHERE id=$category_id";
+    $result = mysqli_query($connection, $query);
+
+    $row = mysqli_fetch_assoc($result);
+    $category_title = $row['title'];
+} else {
+    echo header('location:' . SITEURL . "index.php");
+}
+
+?>
+
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
 
-        <h2>Foods on <a href="#" class="text-white">"Category"</a></h2>
+        <h2>Foods on <a href="#" class="text-white">"<?php echo $category_title ?>"</a></h2>
 
     </div>
 </section>
@@ -18,17 +33,19 @@
         <h2 class="text-center">Food Menu</h2>
 
         <?php
-        $query = "SELECT * FROM tbl_category WHERE active='yes'";
-        $result = mysqli_query($connection, $query);
+        $query2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
+        $result2 = mysqli_query($connection, $query2);
 
-        if ($result) {
+        if ($result2) {
             // GETTING NUMBER OF ROWS:
-            $count = mysqli_num_rows($result);
+            $count = mysqli_num_rows($result2);
             $sn = 1;
             // ITERATE AND FETCH ALL THE RECORDS FROM DB
-            while ($rows = mysqli_fetch_assoc($result)) {
+            while ($rows = mysqli_fetch_assoc($result2)) {
                 $id = $rows['id'];
                 $title = $rows['title'];
+                $price = $rows['price'];
+                $description = $rows['description'];
                 $image_name = $rows['image_name'];
 
         ?>
@@ -39,6 +56,8 @@
 
                     <div class="food-menu-desc">
                         <h4><?php echo $title ?></h4>
+                        <p><?php echo $price ?></p>
+                        <p><?php echo $description ?></p>
                         <br>
 
                         <a href="#" class="btn btn-primary">Order Now</a>
