@@ -17,6 +17,20 @@
 <section class="categories">
     <div class="container">
         <h2 class="text-center">Explore Foods</h2>
+        <p style="color: green; text-align: center;">
+            <?php
+            if (isset($_SESSION['insert'])) {
+                echo $_SESSION['insert'];
+                unset($_SESSION['insert']);
+            }
+            ?></p>
+        <p style="color: red; text-align: center;">
+            <?php
+            if (isset($_SESSION['insert'])) {
+                echo $_SESSION['insert'];
+                unset($_SESSION['insert']);
+            }
+            ?></p>
 
         <?php
         $query = "SELECT * FROM tbl_category WHERE active='yes' AND featured='yes' LIMIT 3";

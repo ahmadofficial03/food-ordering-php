@@ -12,9 +12,16 @@
         <table class="full-width">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
-                <th>Actions</th>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Order Date</th>
+                <th>Status</th>
+                <th>Customer Name</th>
+                <th>Customer Contact</th>
+                <th>Customer Email</th>
+                <th>Customer Address</th>
             </tr>
             <tr>
                 <td>1. </td>
