@@ -108,6 +108,12 @@ table tr td {
     margin: 1rem 0;
 }
 
+.tbl-50 {
+    width: 50%;
+    min-width: 50%;
+    margin: 1rem 0;
+}
+
 
 
 
