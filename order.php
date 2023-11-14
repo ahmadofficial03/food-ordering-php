@@ -1,5 +1,30 @@
 <?php include("./partials-front/menu.php") ?>
 
+<?php
+if (isset($_GET['food_id'])) {
+    $food_id = $_GET['food_id'];
+
+    $query = "SELECT * FROM tbl_food WHERE id=$food_id";
+    $result = mysqli_query($connection, $query);
+
+    $count = mysqli_num_rows($result);
+    if ($count == 1) {
+        // Data is avaliable:
+        while ($row = mysqli_fetch_assoc($result)) {
+            $title = $row['title'];
+            $price = $row['price'];
+            $image_name = $row['image_name'];
+        }
+    } else {
+        echo "food not avaliable";
+        header('location' . SITEURL);
+    }
+} else {
+    header("location:" . SITEURL);
+}
+
+?>
+
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search">
     <div class="container">
@@ -15,8 +40,8 @@
                 </div>
 
                 <div class="food-menu-desc">
-                    <h3>Food Title</h3>
-                    <p class="food-price">$2.3</p>
+                    <h3><?php echo $title ?></h3>
+                    <p class="food-price"><?php echo $price ?>$</p>
 
                     <div class="order-label">Quantity</div>
                     <input type="number" name="qty" class="input-responsive" value="1" required>
