@@ -38,7 +38,7 @@
         ?>
                 <div class="food-menu-box">
                     <div class="food-menu-img">
-                        <img src="images/food/food_category_624.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                        <img src="./images/food/<?php echo $image_name ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
                     </div>
 
                     <div class="food-menu-desc">

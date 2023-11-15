@@ -98,8 +98,8 @@ if (isset($_POST['submit'])) {
         $image_name = $_FILES['image']['name'];
 
         // Rename Image:
-        $ext = end(explode('.', $image_name));
-        $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
+        // $ext = end(explode('.', $image_name));
+        // $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
     } else {
         $image_name = "";
     }

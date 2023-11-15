@@ -101,22 +101,22 @@
             if (isset($_FILES['image']['name'])) {
                 $image_name = $_FILES['image']['name'];
 
-                if ($image_name != "") {
-                    $ext = end(explode('.', $image_name));
-                    $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
+                // if ($image_name != "") {
+                //     // $ext = end(explode('.', $image_name));
+                //     // $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
 
-                    $source_path = $_FILES['image']['tmp_name'];
-                    $destination_path = "../images/food/" . $image_name;
+                //     // $source_path = $_FILES['image']['tmp_name'];
+                //     // $destination_path = "../images/food/" . $image_name;
 
-                    // $upload = move_uploaded_file($source_path, $destination_path);
+                //     // $upload = move_uploaded_file($source_path, $destination_path);
 
-                    // if ($upload == false) {
-                    //     $_SESSION['upload'] = "Failed to upload image";
-                    //     header('location:' . SITEURL . "admin/add-food.php");
+                //     // if ($upload == false) {
+                //     //     $_SESSION['upload'] = "Failed to upload image";
+                //     //     header('location:' . SITEURL . "admin/add-food.php");
 
-                    //     die();
-                    // }
-                }
+                //     //     die();
+                //     // }
+                // }
             } else {
                 $image_name = "";
             }

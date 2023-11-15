@@ -71,20 +71,20 @@ if (isset($_POST['submit'])) {
         $image_name = $_FILES['image']['name'];
 
         // Rename Image:
-        $ext = end(explode('.', $image_name));
-        $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
+        // $ext = end(explode('.', $image_name));
+        // $image_name = 'food_category_' . rand(000, 999) . "." . $ext;
 
-        $source_path = $_FILES['image']['tmp_name'];
-        $destination_path = "../images/category/" . $image_name;
+        // $source_path = $_FILES['image']['tmp_name'];
+        // $destination_path = "../images/category/" . $image_name;
 
-        $upload = move_uploaded_file($source_path, $destination_path);
+        // $upload = move_uploaded_file($source_path, $destination_path);
 
-        if ($upload == true) {
-            // File uploaded successfully
-            echo "upload";
-        } else {
-            echo "failed to upload";
-        }
+        // if ($upload == true) {
+        //     // File uploaded successfully
+        //     echo "upload";
+        // } else {
+        //     echo "failed to upload";
+        // }
     } else {
         $image_name = "";
     }
